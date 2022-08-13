@@ -32,6 +32,7 @@ Cars.init(
     vin_number: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true
     },
   },
   {

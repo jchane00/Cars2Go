@@ -7,8 +7,8 @@
     "mileage": 3402,
     "condition": "Excellent",
     "vin_number": "one"
-},
-{
+  },
+  {
     "make": "Honda",
     "model": "Accord",
     "year": "2015",
@@ -16,5 +16,5 @@
     "mileage": 75957,
     "condition": "Excellent",
     "vin_number": "two"
-}
+  }
 ]

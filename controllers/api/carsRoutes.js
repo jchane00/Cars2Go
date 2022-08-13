@@ -12,52 +12,53 @@ router.get('/', async (req, res) => {
   }
 });
 
-/* // GET a single reader
-router.get('/:id', async (req, res) => {
+/// GET a single car
+router.get('/:vin', async (req, res) => {
+  console.log('now entring the search my vin');
+  console.log(req.params.vin);
   try {
-    const readerData = await Reader.findByPk(req.params.id, {
-      include: [{ model: LibraryCard }],
-    });
+    const carsData = await Cars.findByPk(req.params.vin);
 
-    if (!readerData) {
+    if (!carsData) {
       res.status(404).json({ message: 'No reader found with that id!' });
       return;
     }
 
-    res.status(200).json(readerData);
+    res.status(200).json(carsData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// CREATE a reader
+ // CREATE a reader
 router.post('/', async (req, res) => {
+  console.log(req.body);
   try {
-    const readerData = await Reader.create(req.body);
-    res.status(200).json(readerData);
+    const carsData = await Cars.create(req.body);
+    res.status(200).json(carsData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 // DELETE a reader
-router.delete('/:id', async (req, res) => {
+ router.delete('/:vin', async (req, res) => {
   try {
-    const readerData = await Reader.destroy({
+    const carsData = await Cars.destroy({
       where: {
-        id: req.params.id,
+        vin_number: req.params.vin,
       },
     });
 
-    if (!readerData) {
+    if (!carsData) {
       res.status(404).json({ message: 'No reader found with that id!' });
       return;
     }
 
-    res.status(200).json(readerData);
+    res.status(200).json(carsData);
   } catch (err) {
     res.status(500).json(err);
   }
-}); */
+}); 
 
 module.exports = router;
