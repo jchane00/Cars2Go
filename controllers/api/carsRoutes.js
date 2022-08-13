@@ -3,14 +3,10 @@ const router = require('express').Router();
 const { Cars } = require('../../models');
 
 // GET all readers
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-   const allCars = Cars.findAll()
-    .then((cars) => {
-      console.log(cars)
-    })
-
-    res.status(200).json(allCars);
+    const carData = await Cars.findAll();
+    res.status(200).json(carData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,8 +14,6 @@ router.get('/', (req, res) => {
 
 /// GET a single car
 router.get('/:vin', async (req, res) => {
-  console.log('now entring the search my vin');
-  console.log(req.params.vin);
   try {
     const carsData = await Cars.findByPk(req.params.vin);
 
