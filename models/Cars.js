@@ -34,6 +34,10 @@ Cars.init(
       allowNull: false,
       primaryKey: true
     },
+    image_name:{
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   },
   {
     sequelize,

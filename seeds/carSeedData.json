@@ -6,7 +6,8 @@
     "price": 18999.00,
     "mileage": 3402,
     "condition": "Excellent",
-    "vin_number": "one"
+    "vin_number": "one",
+    "filename": "02-Kia-Forte.jpeg"
   },
   {
     "make": "Honda",
@@ -15,6 +16,7 @@
     "price": 16799.00,
     "mileage": 75957,
     "condition": "Excellent",
-    "vin_number": "two"
+    "vin_number": "two",
+    "filename": "01-Honda-Accord.jpeg"
   }
 ]
