@@ -5,8 +5,10 @@ const { Cars } = require('../../models');
 // GET all readers
 router.get('/', async (req, res) => {
   try {
-    const carData = await Cars.findAll();
-    res.status(200).json(carData);
+    const carsData = await Cars.findAll();
+    //res.status(200).json(carData);
+    const cars = carsData.map((car) => car.get({ plain: true }));
+    res.render('cars', { cars });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,7 +30,7 @@ router.get('/:vin', async (req, res) => {
   }
 });
 
- // CREATE a reader
+// CREATE a reader
 router.post('/', async (req, res) => {
   console.log(req.body);
   try {
@@ -40,7 +42,7 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE a reader
- router.delete('/:vin', async (req, res) => {
+router.delete('/:vin', async (req, res) => {
   try {
     const carsData = await Cars.destroy({
       where: {
@@ -57,6 +59,6 @@ router.post('/', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}); 
+});
 
 module.exports = router;
