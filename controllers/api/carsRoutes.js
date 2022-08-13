@@ -3,10 +3,14 @@ const router = require('express').Router();
 const { Cars } = require('../../models');
 
 // GET all readers
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
   try {
-    const carData = await Cars.findAll();
-    res.status(200).json(carData);
+   const allCars = Cars.findAll()
+    .then((cars) => {
+      console.log(cars)
+    })
+
+    res.status(200).json(allCars);
   } catch (err) {
     res.status(500).json(err);
   }
