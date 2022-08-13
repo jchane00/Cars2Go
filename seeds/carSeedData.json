@@ -7,7 +7,7 @@
     "mileage": 3402,
     "condition": "Excellent",
     "vin_number": "one",
-    "filename": "02-Kia-Forte.jpeg"
+    "image_name": "02-Kia-Forte.jpeg"
   },
   {
     "make": "Honda",
@@ -17,6 +17,6 @@
     "mileage": 75957,
     "condition": "Excellent",
     "vin_number": "two",
-    "filename": "01-Honda-Accord.jpeg"
+    "image_name": "01-Honda-Accord.jpeg"
   }
 ]
