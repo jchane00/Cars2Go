@@ -1,0 +1,10 @@
+<!-- If the user is logged in, render the add car content -->
+{{#if loggedIn}}
+<section class="cars">
+  <div class="car-details">
+  </div>
+</section>
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">You must login first to add a car</a>
+{{/if}}
