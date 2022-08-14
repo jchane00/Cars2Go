@@ -32,7 +32,12 @@ Cars.init(
     vin_number: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true
     },
+    image_name:{
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   },
   {
     sequelize,
