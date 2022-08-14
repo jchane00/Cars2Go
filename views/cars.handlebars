@@ -1,0 +1,12 @@
+<section class="cars">
+  {{#each cars}}
+  <img src="/images/{{image_name}}" alt="{{make}} {{model}}">
+  <div class="car-details">
+    <h3>{{make}} {{model}}</h3>
+    <p>{{year}}</p>
+    <p>{{mileage}}</p>
+    <p>{{price}}</p>
+    <p>{{condition}}</p>
+  </div>
+  {{/each}}
+</section>
