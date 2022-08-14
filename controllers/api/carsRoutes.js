@@ -14,6 +14,10 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/login', async (req,res) => {
+  res.render('login')
+});
+
 /// GET a single car
 router.get('/:vin', async (req, res) => {
   try {
@@ -35,6 +39,7 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   try {
     const carsData = await Cars.create(req.body);
+    //Cars.create({model: 'Ford', image_url: ''})
     res.status(200).json(carsData);
   } catch (err) {
     res.status(400).json(err);

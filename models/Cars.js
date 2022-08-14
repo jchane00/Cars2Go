@@ -21,7 +21,7 @@ Cars.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    milage: {
+    mileage: {
       type: DataTypes.INTEGER,
       defaultValue: 100
     },
