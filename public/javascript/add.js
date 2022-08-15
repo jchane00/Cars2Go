@@ -1,12 +1,17 @@
-const signupFormHandler = async (event) => {
+const addFormHandler = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-  
+    const make = document.querySelector('#add-make').value.trim();
+    const model = document.querySelector('#add-model').value.trim();
+    const year = document.querySelector('#add-year').value.trim();
+    const price = document.querySelector('#add-price').value.trim();
+    const mileage = document.querySelector('#add-mileage').value.trim();
+    const condition = document.querySelector('#add-condition').value.trim();
+    const vin = document.querySelector('#add-vin').value.trim();
+    const link= document.querySelector('#add-link').value.trim();
+
     if (username && email && password) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/add', {
         method: 'POST',
         body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -15,16 +20,13 @@ const signupFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed to sign up.');
+        alert('Failed to add car.');
       }
     }
   };
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    .querySelector('.add-form')
+    .addEventListener('submit', addFormHandler);
   
