@@ -4,10 +4,10 @@ const loginFormHandler = async (event) => {
   const employeeLogin = document.querySelector('#employee-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
-  if (email && password) {
+  if (employeeLogin && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ employeeLogin, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -19,3 +19,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
