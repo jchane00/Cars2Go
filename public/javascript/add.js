@@ -10,10 +10,10 @@ const addFormHandler = async (event) => {
     const vin = document.querySelector('#add-vin').value.trim();
     const link= document.querySelector('#add-link').value.trim();
 
-    if (username && email && password) {
+    if (make && model && year && price && mileage && condition && vin && link) {
       const response = await fetch('/api/add', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ make, model, year, price, mileage, condition, vin, link }),
         headers: { 'Content-Type': 'application/json' },
       });
   
