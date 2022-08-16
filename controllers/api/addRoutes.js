@@ -1,27 +1,20 @@
 const router = require('express').Router();
 
 const { Cars } = require('../../models');
-
 //Route to add new cars
-router.post('/add', (req, res) => {
+router.post('/', async (req, res) => {
+    console.log("hit")
 try {
 
-const addCars = await Cars.create({
-    make: req.body.make,
-    model: req.body.model,
-    year: req.body.year,
-    price: req.body.price,
-    mileage: req.body.mileage,
-    condition: req.body.condition,
-    image_name: req.body.image_name
-    });
+const addCars = await Cars.create({...req.body});
 
 //Setup Sessions
- req.session.save(() => {
-    req.session.loggedIn = true;
+//  req.session.save(() => {
+//     req.session.loggedIn = true;
+res.redirect('/api/cars');
+    // res.status(200);
 
-    res.status(200).json(userData);
-  });
+//   });
 } catch (err) {
   console.log(err);
   res.status(500).json(err);
@@ -59,7 +52,7 @@ router.post('/login', async (req, res) => {
   
         res
           .status(200)
-          .json({ user: dbUserData, message: 'You are now logged in!' });
+          .json({ user: userData, message: 'You are now logged in!' });
       });
     } catch (err) {
       console.log(err);
