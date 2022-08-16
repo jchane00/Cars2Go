@@ -2,7 +2,7 @@ const router = require('express').Router();
 // use object destructuring to import our two models by name
 const { Cars } = require('../../models');
 
-// GET all readers
+// GET all cars
 router.get('/', async (req, res) => {
   try {
     const carsData = await Cars.findAll();
@@ -34,7 +34,7 @@ router.get('/:vin', async (req, res) => {
   }
 });
 
-// CREATE a reader
+// CREATE a car
 router.post('/', async (req, res) => {
   console.log(req.body);
   try {

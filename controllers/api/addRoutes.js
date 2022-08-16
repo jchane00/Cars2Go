@@ -2,24 +2,24 @@ const router = require('express').Router();
 
 const { Cars } = require('../../models');
 //Route to add new cars
-router.post('/', async (req, res) => {
-    console.log("hit")
-try {
+// router.post('/', async (req, res) => {
+//     console.log("hit")
+// try {
 
-const addCars = await Cars.create({...req.body});
+// const addCars = await Cars.create({...req.body});
 
-//Setup Sessions
-//  req.session.save(() => {
-//     req.session.loggedIn = true;
-res.redirect('/api/cars');
-    // res.status(200);
+// //Setup Sessions
+// //  req.session.save(() => {
+// //     req.session.loggedIn = true;
+// res.redirect('/api/cars');
+//     // res.status(200);
 
-//   });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
-});
+// //   });
+// } catch (err) {
+//   console.log(err);
+//   res.status(500).json(err);
+// }
+// });
 
 // Login
 router.post('/login', async (req, res) => {
