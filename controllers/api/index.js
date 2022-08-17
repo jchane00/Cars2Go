@@ -7,6 +7,4 @@ router.use('/add', addRoutes);
 
 
 
-
-
 module.exports = router;

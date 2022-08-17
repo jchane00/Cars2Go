@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { Cars } = require('../../models');
 // Route to add new cars
-router.post('/', async (req, res) => {
+router.post('/add', async (req, res) => {
     // console.log("hit")
 try {
 
@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({
         where: {
-          email: req.body.email,
+          employee_id: req.body.employee_id,
         },
       });
   
