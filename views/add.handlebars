@@ -1,0 +1,45 @@
+<!-- If the user is logged in, render the add car content -->
+{{#if loggedIn}}
+<section class="cars">
+  <div class="row justify-space-between-md">
+  <div class="add-card">
+    <h2 class="page-title">Add Cars</h2>
+    <form class="form add-form">
+      <div class="form-group">
+        <label for="add-make">Make:</label>
+        <input class="form-input" type="text" id="add-make" />
+      </div>
+      <div class="form-group">
+        <label for="add-model">Model:</label>
+        <input class="form-input" type="text" id="add-model" />
+      </div>
+      <div class="form-group">
+        <label for="add-year">Year:</label>
+        <input class="form-input" type="number" id="add-year" />
+      </div>
+      <div class="form-group">
+        <label for="add-year">Price:</label>
+        <input class="form-input" type="number" id="add-year" />
+      </div>
+      <div class="form-group">
+        <label for="add-condition">Condition:</label>
+        <input class="form-input" type="text" id="add-condition" />
+      </div>
+      <div class="form-group">
+        <label for="add-link">Image Link:</label>
+        <input class="form-input" type="link" id="add-link" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">add</button>
+      </div>
+    </form>
+  </div>
+
+  </div>
+</section>
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">You must login first to add a car</a>
+{{/if}}
+
+<script src="../public/javascript/add.js"></script>

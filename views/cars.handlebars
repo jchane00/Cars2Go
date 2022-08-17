@@ -1,12 +1,15 @@
 <section class="cars">
   {{#each cars}}
+  {{!-- if image_name  --}}
   <img src="/images/{{image_name}}" alt="{{make}} {{model}}">
+  {{!-- else
+  <img src={{image_link}} alt="{{make}} {{model}}"> --}}
   <div class="car-details">
     <h3>{{make}} {{model}}</h3>
-    <p>{{year}}</p>
-    <p>{{mileage}}</p>
-    <p>{{price}}</p>
-    <p>{{condition}}</p>
+    <p>Year: {{year}}</p>
+    <p>Mileage: {{mileage}}</p>
+    <p>Price: ${{price}}</p>
+    <p>Condition: {{condition}}</p>
   </div>
   {{/each}}
 </section>
