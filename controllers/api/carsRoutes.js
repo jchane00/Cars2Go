@@ -8,15 +8,17 @@ router.get('/', async (req, res) => {
     const carsData = await Cars.findAll();
     //res.status(200).json(carData);
     const cars = carsData.map((car) => car.get({ plain: true }));
-    res.render('cars', { cars });
+    res.render('cars', {
+      cars,
+      loggedIn: req.session.loggedIn
+    });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
 
-router.get('/login', async (req,res) => {
-  res.render('login')
-});
+
 
 /// GET a single car
 router.get('/:vin', async (req, res) => {
@@ -65,5 +67,7 @@ router.delete('/:vin', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 module.exports = router;
