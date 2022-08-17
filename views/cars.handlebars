@@ -1,3 +1,5 @@
+<!-- If the user is logged in, render the painting content -->
+{{#if loggedIn}}
 <section class="cars">
   {{#each cars}}
   {{!-- if image_name  --}}
@@ -13,3 +15,7 @@
   </div>
   {{/each}}
 </section>
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">You must login first to view this page</a>
+{{/if}}

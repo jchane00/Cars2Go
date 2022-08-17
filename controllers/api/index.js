@@ -1,10 +1,8 @@
 const router = require('express').Router();
 const carsRoutes = require('./carsRoutes');
-//const libraryCardRoutes = require('./libraryCardRoutes');
+const userRoutes = require('./user-routes');
 
 router.use('/cars', carsRoutes);
-//router.use('/cards', libraryCardRoutes);
-
-
+router.use('/users', userRoutes);
 
 module.exports = router;
