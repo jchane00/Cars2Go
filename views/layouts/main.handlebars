@@ -22,6 +22,9 @@
     <!-- Otherwise, show a link to login -->
     <a href="/login">Login</a>
     {{/if}}
+    {{#if loggedIn}}
+    <a id="addcars"  href="/api/add">Add Cars</a>
+    {{/if}}
   </nav>
   <main>
     <aside>
