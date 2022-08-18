@@ -6,9 +6,8 @@ const { Cars } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const carsData = await Cars.findAll();
-    //res.status(200).json(carData);
     const cars = carsData.map((car) => car.get({ plain: true }));
-    res.render('cars', { cars });
+    res.render('cars', { cars, loggedIn: !!req.session.user_id });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -46,7 +45,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// DELETE a reader
+// DELETE a Car
 router.delete('/:vin', async (req, res) => {
   try {
     const carsData = await Cars.destroy({

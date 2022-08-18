@@ -1,6 +1,7 @@
 [
-    {
-        "employee_id": "sal@hotmail.com",
+    {   
+        "username": "Sal",
+        "email": "sal@hotmail.com",
         "password": "password1234"
       }
    
