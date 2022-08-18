@@ -7,15 +7,15 @@ router.get('/', async (req, res) => {
   try {
     const carsData = await Cars.findAll();
     const cars = carsData.map((car) => car.get({ plain: true }));
+
     res.render('cars', { cars, loggedIn: !!req.session.user_id });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
 
-router.get('/login', async (req,res) => {
-  res.render('login')
-});
+
 
 /// GET a single car
 router.get('/:vin', async (req, res) => {
@@ -66,3 +66,4 @@ router.delete('/:vin', async (req, res) => {
 });
 
 module.exports = router;
+
