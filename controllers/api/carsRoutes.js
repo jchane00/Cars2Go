@@ -2,16 +2,13 @@ const router = require('express').Router();
 // use object destructuring to import our two models by name
 const { Cars } = require('../../models');
 
-// GET all readers
+// GET all cars
 router.get('/', async (req, res) => {
   try {
     const carsData = await Cars.findAll();
-    //res.status(200).json(carData);
     const cars = carsData.map((car) => car.get({ plain: true }));
-    res.render('cars', {
-      cars,
-      loggedIn: req.session.loggedIn
-    });
+
+    res.render('cars', { cars, loggedIn: !!req.session.user_id });
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
@@ -36,7 +33,7 @@ router.get('/:vin', async (req, res) => {
   }
 });
 
-// CREATE a reader
+// CREATE a car
 router.post('/', async (req, res) => {
   console.log(req.body);
   try {
@@ -48,7 +45,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// DELETE a reader
+// DELETE a Car
 router.delete('/:vin', async (req, res) => {
   try {
     const carsData = await Cars.destroy({
@@ -68,6 +65,5 @@ router.delete('/:vin', async (req, res) => {
   }
 });
 
-
-
 module.exports = router;
+

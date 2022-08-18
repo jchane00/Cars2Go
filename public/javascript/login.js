@@ -34,7 +34,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/api/cars');
+      document.location.replace('/api/add');
     } else {
       alert('Failed to sign up.');
     }

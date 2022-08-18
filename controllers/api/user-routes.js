@@ -10,11 +10,12 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
 
-    // Set up sessions with a 'loggedIn' variable set to `true`
+    // Remembering the id of the user in session`
     req.session.save(() => {
-      req.session.loggedIn = true;
+    
+    req.session.user_id = dbUserData.dataValues.id
 
-      res.status(200).json(dbUserData);
+      res.sendStatus(200)
     });
   } catch (err) {
     console.log(err);
@@ -27,7 +28,7 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        username: req.body.email,
+        email: req.body.email,
       },
     });
 
@@ -47,14 +48,11 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // Once the user successfully logs in, set up the sessions variable 'loggedIn'
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
-    });
+    // Remembering the id of the user in session'
+    req.session.save(() => {    
+        req.session.user_id = dbUserData.dataValues.id    
+          res.sendStatus(200)
+        });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -74,3 +72,4 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
+
